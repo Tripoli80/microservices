@@ -4,10 +4,10 @@ Two NestJS microservices that communicate via gRPC. The Producer reads user data
 
 ## Architecture
 ```
-┌─────────────┐         gRPC          ┌─────────────┐
+┌─────────────┐         gRPC           ┌─────────────┐
 │  Consumer   │ ────────────────────>  │  Producer   │
 │  Service    │                        │  Service    │
-│  (Port 3000)│                        │  (Port 50051)│
+│ (Port 3000) │                        │ (Port 50051)│
 └─────────────┘                        └─────────────┘
       │                                       │
       │                                       │
