@@ -69,7 +69,7 @@ curl http://localhost:3000/get-filtered-users
 
 Or open `http://localhost:3000/get-filtered-users` in your browser.
 
-Both will return a JSON array of users filtered by age (default: age >= 18).
+Both will return a JSON array of users filtered by age (default: age > 18).
 
 ## Project Structure
 
@@ -133,7 +133,7 @@ message User {
 
 - **Producer gRPC port**: `50051`
 - **Consumer HTTP port**: `3000` (configurable via `PORT` env var)
-- **Default age filter**: `18` (users with age >= 18)
+- **Default age filter**: `18` (users with age > 18)
 
 To change user data, edit `producer/src/data/user.json` and rebuild:
 ```bash
@@ -161,5 +161,5 @@ docker-compose up --build producer
 - Both services use the same `proto/users.proto` file
 - Proto paths use `process.cwd()` to work in both local and Docker environments
 - Consumer automatically requests filtered users on startup
-- Filtering uses `age >= threshold` (not `>`)
+- Filtering uses `age > threshold`
 

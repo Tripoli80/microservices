@@ -19,6 +19,6 @@ export class UserService {
     if (age < 0){
       throw new BadRequestException('Age must be greater than or equal to 0');
     }
-    return this.users.filter(user => user.age >= age);
+    return this.users.filter(user => user.age > age);
   }
 }
