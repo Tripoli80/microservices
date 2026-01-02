@@ -1,0 +1,29 @@
+services:
+  producer:
+    build:
+      context: .
+      dockerfile: ./producer/Dockerfile
+    container_name: producer
+    ports:
+      - "50051:50051"
+    networks:
+      - microservices-network
+
+  consumer:
+    build:
+      context: .
+      dockerfile: ./consumer/Dockerfile
+    container_name: consumer
+    depends_on:
+      - producer
+    ports:
+      - "3000:3000"
+    networks:
+      - microservices-network
+    environment:
+      - PORT=3000
+      - PRODUCER_URL=producer:50051
+
+networks:
+  microservices-network:
+    driver: bridge
